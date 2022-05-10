@@ -3,35 +3,38 @@
 <p align="center">
   <a href="#problema">Problema</a> -
   <a href="#desenvolvimento">Desenvolvimento</a> -
+  <a href="#entrada">Entrada</a> -
   <a href="#saida">Saida</a> -
   <a href="#executar">Executar</a>
 </p>
  
 
 # Problema
-### Crie uma lista linear que consiga armazenar um conjunto de 100 nomes quaisquer, os quais serão salvos de forma aleatória. Feito a estrutura crie as seguintes ações:
-
-+ Uma função que consiga identificar replicações na lista, ou seja, nomes iguais. Remova todas as réplicas sem mover os ”ponteiro“.
-+ Como você gerenciaria os espaços em branco para novas inserções? Qual seria o custo dessas novas inserções?
-**R:** Feito a remoção dos mesmos nomes, todo espaço vazio recebe um booleano com o valor true,dizendo que aquele espaço pode ser feito uma nova insercao.
+### Elabore um programa que receba uma cadeias de DNA. Cada posição da cadeia deve conter um códon, ou seja, uma triade de nucleotídeos → T, A, G, C. Feito isso, leia de um arquivo uma sequência de nucleotídios (i.e., ACGTGGCTCTCTAACGTACGTACGTACGGGGTTATATTCGAT) e tente identificar a maior cadeia da lista que se relaciona a essa entrada.
 
 # Desenvolvimento
-O problema foi desenvolvido da seguinte maneira:
+### O problema foi desenvolvido da seguinte maneira:
 
-* É definido o tamanho da fila para 100, ou seja atribuindo o valor 100 para **N** na função **define** de acordo com o problema proposto.
-* Logo depois é criado um vetor de strings para armazenar os nomes que serão inseridos randomicamente na fila
-* É feito a inserção de valores na fila por meio da função **rand()**
-* Depois é executado a função **RemoveSameNames()**, onde será feita as comparações utilizando um ponteiro pra armazenar a variavel do vetor na posição **i** e comparando com todas as outras posições do vetor, assim removendo os nomes iguais e utilizando um booleano para identificar as posições onde pode haver novas inserções
-* Por fim é feito a impressão da fila após a remoção dos nomes iguais
+* É definido pelo usuario o tamanho da fila de acordo com o numero de códons, atribuindo o valor para **N** na função **define**
+* Também é definido um máximo de 1024 caracteres em uma linha
+* Depois é executado a função **MaximaCadeia()**, onde será feita a abertura do arquivo contendo a sequencia de DNA e a entrada do usuario, depois é feito a tokenização do arquivo armazenando a primeira linha na fila e a segunda em um vetor de string. Com isso é printado tanto o segmento de DNA como a entrada e depois se compara os códons da entrada com os do DNA, assim obtendo a maior cadeia entre os códons da entrada
+* Por fim é feito a impressão da cadeia obtida
+# Entrada
+### A entrada do usuário é feito no arquivo _nucleotide_sequence.txt_ e segue a seguinte estrutura:
+Linha   | variavel
+--------- | ------
+1 | DNA
+2 | INPUT
 
 # Saida
-### É esperado que a saida tenha o print da lista depois de inserido os nomes randomicamente e por fim o print da lista após os nomes iguais serem alterados para **R**, alegando que aquela posição pode haver uma reinserção.
+### É esperado que a saida tenha o print do input do usuario, depois a lista com o segmento de DNA e por fim o print da cadeia obtida. 
 
 
 # Executar
 * Como executar:
 
 ```
+  make clean
   make
   make run
 ```
